@@ -1,0 +1,27 @@
+# Byte-compiled / optimized Python files
+__pycache__/
+*.py[cod]
+
+# Environment variables
+.env
+
+# Development server
+*.pid
+*.pyc
+
+# Mac OS metadata files
+.DS_Store
+
+# IDE files
+.idea/
+.vscode/
+
+# Log files
+*.log
+
+# Dependency directories
+venv/
+env/
+
+# Database
+instance/
