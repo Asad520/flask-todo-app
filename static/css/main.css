@@ -1,0 +1,13 @@
+body {
+    margin:0px;
+    font-family: sans-serif;
+}
+
+h1 {
+    align-self: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}

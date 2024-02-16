@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="container mx-auto bg-slate-300 flex flex-col rounded-lg">
+    <h1 class="font-black text-white text-2xl bg-[#2f3d6a] text-center lg:py-4 py-2 rounded-lg m-4">Task Master</h1>
+
+    <!-- Form -->
+    <div class="bg-[#2f3d6a] rounded-lg p-4 m-4 text-white">
+        <form action="/update/{{task.id}}" method="post" class="flex flex-col">
+            <label for="task" class="text-lg font-black">Task to update</label>
+            <input type="text" value="{{task.content}}" name="task" placeholder="Write something..." id="task" class="border-2 border-slate-400 rounded-lg p-2 mb-2 text-black">
+            <button type="submit" class="bg-[#2f3d6a] text-white border-2 border-slate-400 rounded-lg p-2">Update Task</button>
+        </form>
+    </div>
+
+</div>
+{% endblock %}

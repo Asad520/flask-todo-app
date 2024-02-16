@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="container mx-auto bg-slate-300 flex flex-col rounded-lg">
+    <h1 class="font-black text-white text-2xl bg-[#2f3d6a] text-center lg:py-4 py-2 rounded-lg m-4">Task Master</h1>
+
+    <!-- Form -->
+    <div class="bg-[#2f3d6a] rounded-lg p-4 m-4 text-white">
+        <form action="/" method="post" class="flex flex-col">
+            <label for="task" class="text-lg font-black">Task</label>
+            <input type="text" name="task" placeholder="Write something..." id="task" class="border-2 border-slate-400 rounded-lg p-2 mb-2 text-black">
+            <button type="submit" class="bg-[#2f3d6a] text-white border-2 border-slate-400 rounded-lg p-2">Add Task</button>
+        </form>
+    </div>
+
+    {% if tasks|length < 1 %}
+    <div class="bg-[#2f3d6a] rounded-lg p-4 m-4 text-white">
+        <p class="text-lg font-black text-center">No tasks added yet!</p>
+    </div>
+    {% else %}
+    <!-- Table -->
+    <div class="bg-[#2f3d6a] rounded-lg p-4 m-4 text-white">
+        <div class="border-2 border-slate-100 rounded-lg p-3" id="table">
+            <!-- Table header row -->
+            <div class="grid grid-cols-3 border-b-2 border-slate-400 pb-2 mb-2">                
+                <h1 class="text-lg font-black"> Task </h1>
+                <h1 class="text-lg font-black"> Added </h1>
+                <h1 class="text-lg font-black"> Action </h1>                
+            </div>            
+            <!-- Table Data -->
+            {% for task in tasks %}
+            <div class="grid grid-cols-3 border-b border-slate-500 pb-2 mb-2">                
+                <p> {{task.content}} </p>
+                <p> {{task.date_created.date()}} </p>
+                <span>
+                    <a href="/delete/{{task.id}}" class="underline">Delete</a>
+                    <a href="/update/{{task.id}}" class="underline ml-1">Update</a>
+                </span>                
+            </div>
+            {% endfor %}
+        </div>        
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
