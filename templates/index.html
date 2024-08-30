@@ -26,23 +26,23 @@
     <div class="bg-[#2f3d6a] rounded-lg p-4 m-4 text-white">
         <div class="border-2 border-slate-100 rounded-lg p-3" id="table">
             <!-- Table header row -->
-            <div class="grid grid-cols-3 border-b-2 border-slate-400 pb-2 mb-2">                
+            <div class="grid grid-cols-3 border-b-2 border-slate-400 pb-2 mb-2">
                 <h1 class="text-lg font-black"> Task </h1>
                 <h1 class="text-lg font-black"> Added </h1>
-                <h1 class="text-lg font-black"> Action </h1>                
-            </div>            
+                <h1 class="text-lg font-black"> Action </h1>
+            </div>
             <!-- Table Data -->
             {% for task in tasks %}
-            <div class="grid grid-cols-3 border-b border-slate-500 pb-2 mb-2">                
+            <div class="grid grid-cols-3 border-b border-slate-500 pb-2 mb-2">
                 <p> {{task.content}} </p>
                 <p> {{task.date_created.date()}} </p>
                 <span>
                     <a href="/delete/{{task.id}}" class="underline">Delete</a>
                     <a href="/update/{{task.id}}" class="underline ml-1">Update</a>
-                </span>                
+                </span>
             </div>
             {% endfor %}
-        </div>        
+        </div>
     </div>
     {% endif %}
 </div>
